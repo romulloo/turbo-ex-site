@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";
 
 export default function About() {
@@ -8,6 +9,20 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold text-center uppercase tracking-wider mb-12">
             Sobre a <span className="text-turbo-orange">TurboEX</span>
           </h2>
+        </ScrollAnimation>
+
+        {/* Team photo */}
+        <ScrollAnimation delay={0.1}>
+          <div className="rounded-xl overflow-hidden border border-white/10 mb-12">
+            <Image
+              src="/images/equipe.webp"
+              alt="Equipe TurboEX em frente a empresa"
+              width={1200}
+              height={500}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

@@ -27,9 +27,9 @@ export default function Hero() {
       {/* Parallax background (disabled on mobile) */}
       <motion.div
         style={{ y: isMobile ? 0 : y }}
-        className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center"
+        className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center bg-black"
       />
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <motion.div style={{ opacity }} className="relative z-10 text-center px-4">
@@ -48,7 +48,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Especialistas em Turbinas Automotivas
+          Tecnologia em Turbinas
         </motion.p>
 
         <motion.div
