@@ -11,41 +11,34 @@ export default function CatalogPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [category, setCategory] = useState("");
-  const [brand, setBrand] = useState("");
   const [application, setApplication] = useState("");
 
   useEffect(() => {
     setLoading(true);
     fetchProducts({
-      category: category || undefined,
-      brand: brand || undefined,
       application: application || undefined,
     })
       .then(setProducts)
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [category, brand, application]);
+  }, [application]);
 
   const clearFilters = () => {
-    setCategory("");
-    setBrand("");
     setApplication("");
   };
 
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-2">
           <span className="text-turbo-orange">Catalogo</span> de Turbinas
         </h1>
+        <p className="text-white/40 text-sm uppercase tracking-[0.25em] mb-8">
+          Turbinas TurboEX — Pronta Entrega
+        </p>
 
         <FilterBar
-          category={category}
-          brand={brand}
           application={application}
-          onCategoryChange={setCategory}
-          onBrandChange={setBrand}
           onApplicationChange={setApplication}
           onClear={clearFilters}
         />

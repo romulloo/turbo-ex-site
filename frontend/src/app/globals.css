@@ -16,3 +16,74 @@ body {
   background-color: #0a0a0a;
   color: #ffffff;
 }
+
+/* Shimmer sweep on cards */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-200%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.card-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 106, 0, 0.06) 45%,
+    rgba(255, 106, 0, 0.12) 50%,
+    rgba(255, 106, 0, 0.06) 55%,
+    transparent 100%
+  );
+  transform: translateX(-200%) rotate(25deg);
+  z-index: 1;
+  pointer-events: none;
+}
+.card-shimmer:hover::before {
+  animation: shimmer-sweep 0.8s ease-in-out;
+}
+
+/* Button shine effect */
+@keyframes btn-shine-sweep {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: translateX(-200%);
+  pointer-events: none;
+}
+.btn-shine:hover::before {
+  animation: btn-shine-sweep 0.8s ease-in-out;
+}
+
+/* Gradient divider */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 106, 0, 0.3), transparent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-shimmer::before,
+  .btn-shine::before {
+    animation: none !important;
+  }
+}

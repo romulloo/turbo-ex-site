@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from models import Service, Seller
+from models import Service, Seller, Product
 
 
 def seed_services(db: Session):
@@ -39,6 +39,52 @@ def seed_sellers(db: Session):
     db.commit()
 
 
+def seed_products(db: Session):
+    if db.query(Product).count() > 0:
+        return
+    products = [
+        Product(
+            name="Turbina TurboEX TEX-4849",
+            description="Turbina de alta performance TurboEX modelo TEX-4849. Pronta entrega com garantia. Ideal para veiculos de passeio e utilitarios.",
+            brand="TurboEX",
+            category="Pronta Entrega",
+            application="carro",
+            image_url="/images/turbina-exemplo.png",
+            is_featured=True,
+        ),
+        Product(
+            name="Turbina TurboEX TEX-5055",
+            description="Turbina TurboEX modelo TEX-5055 para caminhoes e veiculos pesados. Pronta entrega com garantia e assistencia tecnica.",
+            brand="TurboEX",
+            category="Pronta Entrega",
+            application="caminhao",
+            image_url="/images/turbina-exemplo.png",
+            is_featured=True,
+        ),
+        Product(
+            name="Turbina TurboEX TEX-3540",
+            description="Turbina TurboEX modelo TEX-3540 com pecas originais. Pronta entrega com garantia de fabrica.",
+            brand="TurboEX",
+            category="Pronta Entrega",
+            application="carro",
+            image_url="/images/turbina-exemplo.png",
+            is_featured=True,
+        ),
+        Product(
+            name="Turbina TurboEX TEX-6065",
+            description="Turbina TurboEX modelo TEX-6065 de alta performance. Pronta entrega com garantia.",
+            brand="TurboEX",
+            category="Pronta Entrega",
+            application="caminhao",
+            image_url="/images/turbina-exemplo.png",
+            is_featured=False,
+        ),
+    ]
+    db.add_all(products)
+    db.commit()
+
+
 def run_seed(db: Session):
     seed_services(db)
     seed_sellers(db)
+    seed_products(db)

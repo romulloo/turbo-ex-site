@@ -43,7 +43,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-2xl text-turbo-gray mb-8 tracking-wide"
+          className="text-sm md:text-base text-white/40 mb-8 tracking-[0.25em] uppercase"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
