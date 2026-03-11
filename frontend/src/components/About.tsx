@@ -1,0 +1,47 @@
+import ScrollAnimation from "./ScrollAnimation";
+
+export default function About() {
+  return (
+    <section id="sobre" className="py-24 bg-turbo-dark">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollAnimation>
+          <h2 className="text-3xl md:text-4xl font-bold text-center uppercase tracking-wider mb-12">
+            Sobre a <span className="text-turbo-orange">TurboEX</span>
+          </h2>
+        </ScrollAnimation>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <ScrollAnimation delay={0.2}>
+            <p className="text-turbo-gray text-lg leading-relaxed">
+              A TurboEX e referencia em turbinas automotivas em Curitiba e regiao.
+              Com anos de experiencia no mercado, oferecemos servicos completos de
+              venda, manutencao, balanceamento e reparo de turbinas para todos os
+              tipos de veiculos.
+            </p>
+            <p className="text-turbo-gray text-lg leading-relaxed mt-4">
+              Trabalhamos com as principais marcas do mercado e contamos com uma
+              equipe altamente qualificada para garantir o maximo desempenho do
+              seu turbo.
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation delay={0.4}>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { value: "1000+", label: "Turbinas Vendidas" },
+                { value: "500+", label: "Clientes Satisfeitos" },
+                { value: "10+", label: "Anos de Experiencia" },
+                { value: "100%", label: "Garantia" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-turbo-card rounded-xl p-6 text-center border border-white/5">
+                  <p className="text-3xl font-bold text-turbo-orange">{stat.value}</p>
+                  <p className="text-turbo-gray text-sm mt-2 uppercase tracking-wider">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </div>
+    </section>
+  );
+}
