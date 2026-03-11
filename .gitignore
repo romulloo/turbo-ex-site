@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.db
+*.db-wal
+*.db-shm
+backend/data/*
+!backend/data/.gitkeep
+
+# Node
+node_modules/
+.next/
+frontend/.next/
+frontend/node_modules/
+
+# Uploads (user-provided content)
+backend/uploads/products/*
+backend/uploads/sellers/*
+!backend/uploads/products/.gitkeep
+!backend/uploads/sellers/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
