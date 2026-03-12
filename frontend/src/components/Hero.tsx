@@ -112,8 +112,24 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col justify-center bg-turbo-dark"
+      className="relative min-h-screen flex flex-col justify-center bg-turbo-dark overflow-hidden"
     >
+      {/* Orange/black gradient background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%]"
+          style={{
+            background: "radial-gradient(ellipse at center, rgba(255,106,0,0.12) 0%, rgba(255,106,0,0.05) 30%, transparent 65%)",
+          }}
+        />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[60%]"
+          style={{
+            background: "radial-gradient(ellipse at top, rgba(255,106,0,0.08) 0%, transparent 60%)",
+          }}
+        />
+      </div>
+
       <div className="relative z-10 flex-1 flex flex-col justify-center w-full max-w-5xl mx-auto px-6 pt-28 pb-16 text-center">
         {/* Badge */}
         <motion.div
