@@ -24,7 +24,7 @@ const VIEWS = [
     key: "street",
     label: "Street View",
     icon: Eye,
-    src: `https://maps.google.com/maps?q=${MAP_QUERY}&layer=c&z=17&ie=UTF8&iwloc=&output=embed`,
+    src: `https://maps.google.com/maps?cbll=-25.4484,-49.2333&cbp=12,0,0,0,0&layer=c&output=embed`,
   },
 ];
 
