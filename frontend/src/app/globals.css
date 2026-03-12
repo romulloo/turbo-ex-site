@@ -80,10 +80,25 @@ body {
   background: linear-gradient(to right, transparent, rgba(255, 106, 0, 0.3), transparent);
 }
 
+/* Marquee auto-scroll */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .card-shimmer::before,
-  .btn-shine::before {
+  .btn-shine::before,
+  .animate-marquee {
     animation: none !important;
   }
 }
