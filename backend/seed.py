@@ -44,12 +44,12 @@ def seed_products(db: Session):
         return
     products = [
         Product(
-            name="Turbina TurboEX TEX-4849",
-            description="Turbina de alta performance TurboEX modelo TEX-4849. Pronta entrega com garantia. Ideal para veiculos de passeio e utilitarios.",
+            name="Turbina TurboEX IS20 MONSTER",
+            description="Turbina de alta performance TurboEX IS20 MONSTER. Upgrade direto para motores EA888 (Golf GTI, Audi A3, Jetta). Rotor billet de alta eficiencia, maior fluxo de ar e resposta mais rapida. Pronta entrega com garantia.",
             brand="TurboEX",
             category="Pronta Entrega",
             application="carro",
-            image_url="/images/turbina-exemplo.png",
+            image_url="/images/is20-monster-1.jpg",
             is_featured=True,
         ),
         Product(

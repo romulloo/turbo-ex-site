@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { X, MessageCircle, Package } from "lucide-react";
+import { X, MessageCircle, Package, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Product } from "@/lib/api";
 
 interface ProductModalProps {
@@ -11,9 +12,17 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
+  const images = product.images && product.images.length > 0
+    ? product.images
+    : product.image_url ? [product.image_url] : [];
+  const [currentImage, setCurrentImage] = useState(0);
+
   const message = product.whatsapp_message
     || `Ola, tenho interesse na turbina ${product.name}. Gostaria de um orcamento.`;
   const whatsappUrl = `https://wa.me/554130959150?text=${encodeURIComponent(message)}`;
+
+  const prevImage = () => setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const nextImage = () => setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 
   return (
     <motion.div
@@ -27,7 +36,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
       {/* Modal */}
       <motion.div
-        className="relative bg-turbo-card rounded-xl max-w-lg w-full overflow-hidden border border-white/10"
+        className="relative bg-turbo-card rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
@@ -41,9 +50,43 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
         </button>
 
         {/* Image */}
-        <div className="relative h-64 bg-turbo-dark">
-          {product.image_url ? (
-            <Image src={product.image_url} alt={product.name} fill className="object-cover" />
+        <div className="relative h-96 bg-turbo-dark">
+          {images.length > 0 ? (
+            <>
+              <Image
+                src={images[currentImage]}
+                alt={`${product.name} - foto ${currentImage + 1}`}
+                fill
+                className="object-contain"
+              />
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-1.5 transition-colors"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-1.5 transition-colors"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentImage(i)}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          i === currentImage ? "bg-turbo-orange" : "bg-white/40"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </>
           ) : (
             <div className="flex items-center justify-center h-full text-turbo-gray">
               <Package size={64} />
@@ -53,6 +96,23 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             {product.category}
           </span>
         </div>
+
+        {/* Thumbnails */}
+        {images.length > 1 && (
+          <div className="flex gap-2 px-6 pt-4">
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentImage(i)}
+                className={`relative w-12 h-12 rounded-md overflow-hidden border-2 transition-colors ${
+                  i === currentImage ? "border-turbo-orange" : "border-white/10 hover:border-white/30"
+                }`}
+              >
+                <Image src={img} alt={`Thumbnail ${i + 1}`} fill className="object-contain" />
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Content */}
         <div className="p-6">

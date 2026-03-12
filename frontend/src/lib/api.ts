@@ -6,6 +6,7 @@ export interface Product {
   category: string;
   application: string;
   image_url: string | null;
+  images?: string[];
   whatsapp_message: string | null;
   is_featured: boolean;
   created_at: string;
@@ -42,7 +43,7 @@ const FALLBACK_SELLERS: Seller[] = [
 ];
 
 const FALLBACK_PRODUCTS: Product[] = [
-  { id: 1, name: "Turbina TurboEX TEX-4849", description: "Turbina de alta performance TurboEX modelo TEX-4849. Pronta entrega com garantia. Ideal para veiculos de passeio e utilitarios.", brand: "TurboEX", category: "Pronta Entrega", application: "carro", image_url: "/images/turbina-exemplo.png", whatsapp_message: null, is_featured: true, created_at: "2026-03-11T00:00:00" },
+  { id: 1, name: "Turbina TurboEX IS20 MONSTER", description: "Turbina de alta performance TurboEX IS20 MONSTER. Upgrade direto para motores EA888 (Golf GTI, Audi A3, Jetta). Rotor billet de alta eficiencia, maior fluxo de ar e resposta mais rapida. Pronta entrega com garantia.", brand: "TurboEX", category: "Pronta Entrega", application: "carro", image_url: "/images/is20-monster-1.jpg", images: ["/images/is20-monster-1.jpg", "/images/is20-monster-2.jpg", "/images/is20-monster-3.jpg", "/images/is20-monster-4.jpg"], whatsapp_message: "Ola, tenho interesse na turbina IS20 MONSTER. Gostaria de um orcamento.", is_featured: true, created_at: "2026-03-11T00:00:00" },
   { id: 2, name: "Turbina TurboEX TEX-5055", description: "Turbina TurboEX modelo TEX-5055 para caminhoes e veiculos pesados. Pronta entrega com garantia e assistencia tecnica.", brand: "TurboEX", category: "Pronta Entrega", application: "caminhao", image_url: "/images/turbina-exemplo.png", whatsapp_message: null, is_featured: true, created_at: "2026-03-11T00:00:00" },
   { id: 3, name: "Turbina TurboEX TEX-3540", description: "Turbina TurboEX modelo TEX-3540 com pecas originais. Pronta entrega com garantia de fabrica.", brand: "TurboEX", category: "Pronta Entrega", application: "carro", image_url: "/images/turbina-exemplo.png", whatsapp_message: null, is_featured: true, created_at: "2026-03-11T00:00:00" },
   { id: 4, name: "Turbina TurboEX TEX-6065", description: "Turbina TurboEX modelo TEX-6065 de alta performance. Pronta entrega com garantia.", brand: "TurboEX", category: "Pronta Entrega", application: "caminhao", image_url: "/images/turbina-exemplo.png", whatsapp_message: null, is_featured: false, created_at: "2026-03-11T00:00:00" },

@@ -28,15 +28,14 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <ScrollAnimation delay={0.2}>
             <p className="text-turbo-gray text-lg leading-relaxed">
-              A TurboEX e referencia em turbinas automotivas em Curitiba e regiao.
-              Com anos de experiencia no mercado, oferecemos servicos completos de
-              venda, manutencao, balanceamento e reparo de turbinas para todos os
-              tipos de veiculos.
+              Atuamos no mercado reparador de Turbos desde 2012. Em 2020 inauguramos
+              nossa Oficina Mecanica, realizando manutencoes basicas e upgrades em
+              automoveis nacionais e importados.
             </p>
             <p className="text-turbo-gray text-lg leading-relaxed mt-4">
-              Trabalhamos com as principais marcas do mercado e contamos com uma
-              equipe altamente qualificada para garantir o maximo desempenho do
-              seu turbo.
+              Utilizamos dinamometro <span className="text-white font-semibold">Servitec</span>.
+              Somos representantes da <span className="text-turbo-orange font-semibold">VagcodingBr</span>,
+              entregando as melhores solucoes aos nossos clientes.
             </p>
           </ScrollAnimation>
 
@@ -45,7 +44,7 @@ export default function About() {
               {[
                 { value: "1000+", label: "Turbinas Vendidas" },
                 { value: "500+", label: "Clientes Satisfeitos" },
-                { value: "10+", label: "Anos de Experiencia" },
+                { value: "14+", label: "Anos de Experiencia" },
                 { value: "100%", label: "Garantia" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-turbo-card rounded-xl p-6 text-center border border-white/5">

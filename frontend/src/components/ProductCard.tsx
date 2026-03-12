@@ -18,13 +18,13 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
       transition={{ duration: 0.2 }}
       onClick={onClick}
     >
-      <div className="relative h-48 bg-turbo-dark overflow-hidden">
+      <div className="relative h-56 bg-turbo-dark overflow-hidden p-4">
         {product.image_url ? (
           <Image
             src={product.image_url}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-300 hover:scale-110"
+            className="object-contain transition-transform duration-300 hover:scale-110"
           />
         ) : (
           <div className="flex items-center justify-center h-full text-turbo-gray">
